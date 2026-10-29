@@ -13,12 +13,19 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.65; color: var(--anthracite); background: var(--light); }
-    header { background: var(--anthracite); color: white; padding: 5rem 1.5rem 4rem; text-align: center; }
-    header h1 { font-size: 2.6rem; margin-bottom: 0.6rem; font-weight: 600; }
-    header p { font-size: 1.2rem; opacity: 0.92; max-width: 700px; margin: 0 auto; }
+    header { background: var(--anthracite); color: white; padding: 4.5rem 1.5rem 3.5rem; text-align: center; position: relative; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 600; }
+    header p { font-size: 1.15rem; opacity: 0.92; max-width: 720px; margin: 0 auto; }
+    .lang-switch { position: absolute; top: 1.2rem; right: 1.5rem; }
+    .lang-switch button { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: white; padding: 0.35rem 0.8rem; margin-left: 0.4rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+    .lang-switch button.active { background: white; color: var(--anthracite); border-color: white; }
     section { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
     h2 { color: var(--blue); margin-bottom: 1.2rem; border-bottom: 2px solid var(--blue); padding-bottom: 0.4rem; font-size: 1.7rem; }
     p { margin-bottom: 1rem; }
+    .profile { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .photo { width: 140px; height: 140px; border-radius: 50%; background: #ddd; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.85rem; text-align: center; overflow: hidden; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .bio-short { flex: 1; min-width: 260px; }
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
     .card { background: white; padding: 1.4rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-left: 4px solid var(--blue); }
     .card h3 { margin-bottom: 0.5rem; color: var(--anthracite); font-size: 1.15rem; }
@@ -28,58 +35,123 @@
     .contact-box { background: var(--anthracite); color: white; padding: 2rem; border-radius: 8px; margin-top: 1rem; }
     .contact-box p { margin-bottom: 0.6rem; }
     .contact-box a { color: #7ec8f0; }
+    .lang-it, .lang-en { display: none; }
+    body.lang-it .lang-it, body.lang-en .lang-en { display: block; }
+    body.lang-it .lang-en, body.lang-en .lang-it { display: none; }
   </style>
 </head>
-<body>
+<body class="lang-it">
   <header>
-    <h1>Dott. Pier Francesco Di Rienzo</h1>
-    <p>Commercialista e Revisore Legale<br>Consulenza aziendale, societaria, fiscale, controllo di gestione e finanza d’impresa</p>
+    <div class="lang-switch">
+      <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <h1 class="lang-it">Dott. Pier Francesco Di Rienzo</h1>
+    <h1 class="lang-en">Pier Francesco Di Rienzo</h1>
+    <p class="lang-it">Commercialista e Revisore Legale<br>Consulenza aziendale, societaria, fiscale, controllo di gestione e finanza d’impresa</p>
+    <p class="lang-en">Chartered Accountant and Statutory Auditor<br>Corporate, tax, management control and corporate finance advisory</p>
   </header>
 
+  <section>
+    <div class="profile">
+      <div class="photo" id="photo-placeholder">
+        Foto professionale
+      </div>
+      <div class="bio-short">
+        <div class="lang-it">
+          <p><strong>Commercialista e Revisore Legale</strong><br>
+          Base in Umbria, operatività in Italia e all’estero.<br>
+          Attivo dai primi anni ’90 (oltre 35 anni di esperienza).<br>
+          Lingue: italiano, inglese, spagnolo, francese.<br>
+          Aggiornamento continuo su normativa, strumenti digitali e tecnologie di analisi.</p>
+        </div>
+        <div class="lang-en">
+          <p><strong>Chartered Accountant and Statutory Auditor</strong><br>
+          Based in Umbria, operating in Italy and worldwide.<br>
+          Active since the early 1990s (over 35 years of experience).<br>
+          Languages: Italian, English, Spanish, French.<br>
+          Continuous updating on regulation, digital tools and analysis technologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="chi-sono">
-    <h2>Chi sono</h2>
-    <p>Sono Commercialista e Revisore Legale. Alla libera professione, svolta con lo Studio Di Rienzo, affianco il ruolo di CFO di un gruppo industriale metalmeccanico del settore automotive con società controllate e partecipate in Italia e all’estero. Ricopro inoltre incarichi di sindaco e di revisore legale in società di capitali, industriali e immobiliari.</p>
-    <p>Nel corso degli anni ho concentrato il lavoro sull’affiancamento diretto agli imprenditori e agli organi amministrativi, con un ruolo operativo nella gestione economico-finanziaria e nei processi decisionali. Mi occupo di piccole e medie imprese e di gruppi societari, intervenendo su bilancio, consolidato, fiscalità, diritto societario e pianificazione finanziaria.</p>
+    <h2 class="lang-it">Chi sono</h2>
+    <h2 class="lang-en">About me</h2>
+    <div class="lang-it">
+      <p>Sono Commercialista e Revisore Legale. Ho base in Umbria e opero in Italia e nel mondo, di persona o attraverso i network professionali costruiti in oltre 35 anni di attività (dai primi anni ’90). Comunico in italiano, inglese, spagnolo e francese.</p>
+      <p>Ho maturato la mia esperienza principalmente nel settore automotive, metalmeccanico e nelle aziende industriali. Per questo i miei servizi sono orientati a questa tipologia di imprese e gruppi societari.</p>
+      <p>Affianco il ruolo di CFO di un gruppo industriale metalmeccanico del settore automotive con società controllate e partecipate in Italia e all’estero. Ricopro inoltre incarichi di sindaco e di revisore legale in società di capitali, industriali e immobiliari.</p>
+      <p>Lavoro con imprese strutturate: vado dai clienti, opero dove serve e utilizzo le tecnologie più avanzate. Non ho bisogno di strutture di supporto superflue. Il focus è sui risultati concreti, non sulla forma.</p>
+    </div>
+    <div class="lang-en">
+      <p>I am a Chartered Accountant and Statutory Auditor. Based in Umbria, I operate in Italy and worldwide, either in person or through the professional networks built over more than 35 years of activity (since the early 1990s). I work in Italian, English, Spanish and French.</p>
+      <p>I developed my experience mainly in the automotive, metalworking and industrial sectors. My services are therefore focused on this type of companies and groups.</p>
+      <p>I act as CFO of an industrial metalworking group in the automotive sector with subsidiaries and affiliates in Italy and abroad. I also serve as statutory auditor and legal auditor in capital companies, both industrial and real estate.</p>
+      <p>I work with structured companies: I go to the clients, operate wherever needed and use advanced technologies. No unnecessary support structures. The focus is on concrete results, not on form.</p>
+    </div>
   </section>
 
   <section id="aree">
-    <h2>Di cosa mi occupo</h2>
+    <h2 class="lang-it">Di cosa mi occupo</h2>
+    <h2 class="lang-en">What I do</h2>
     <div class="cards">
       <div class="card">
-        <h3>Controllo di gestione e CFO</h3>
-        <p>Budget, analisi dei risultati, gestione della liquidità, cash flow, consolidati di gruppo e reporting direzionale. Funzioni di CFO per gruppi industriali con presenza internazionale.</p>
+        <h3 class="lang-it">Controllo di gestione e CFO</h3>
+        <h3 class="lang-en">Management control and CFO</h3>
+        <p class="lang-it">Budget, analisi dei risultati, gestione della liquidità, cash flow, consolidati di gruppo e reporting direzionale. Funzioni di CFO per gruppi industriali con presenza internazionale.</p>
+        <p class="lang-en">Budgeting, performance analysis, liquidity management, cash flow, group consolidations and management reporting. CFO functions for industrial groups with international presence.</p>
       </div>
       <div class="card">
-        <h3>Bilancio e revisione</h3>
-        <p>Bilancio d’esercizio secondo i principi OIC, bilancio consolidato, revisione legale secondo i principi ISA Italia. Incarichi di sindaco e revisore legale.</p>
+        <h3 class="lang-it">Bilancio e revisione</h3>
+        <h3 class="lang-en">Financial statements and audit</h3>
+        <p class="lang-it">Bilancio d’esercizio secondo i principi OIC, bilancio consolidato, revisione legale secondo i principi ISA Italia. Incarichi di sindaco e revisore legale.</p>
+        <p class="lang-en">Financial statements under Italian OIC principles, consolidated accounts, statutory audit under ISA Italia. Roles as statutory auditor and legal auditor.</p>
       </div>
       <div class="card">
-        <h3>Fiscalità d’impresa</h3>
-        <p>Imposte dirette e IVA, anche nelle operazioni con l’estero. Contenzioso tributario e interlocuzione con l’Amministrazione finanziaria.</p>
+        <h3 class="lang-it">Fiscalità d’impresa</h3>
+        <h3 class="lang-en">Corporate taxation</h3>
+        <p class="lang-it">Imposte dirette e IVA, anche nelle operazioni con l’estero. Contenzioso tributario e interlocuzione con l’Amministrazione finanziaria.</p>
+        <p class="lang-en">Direct taxes and VAT, including cross-border transactions. Tax litigation and relations with the tax authorities.</p>
       </div>
       <div class="card">
-        <h3>Diritto societario e governance</h3>
-        <p>Operazioni straordinarie, governance, rapporti tra società del gruppo e coordinamento amministrativo e societario.</p>
+        <h3 class="lang-it">Diritto societario e governance</h3>
+        <h3 class="lang-en">Corporate law and governance</h3>
+        <p class="lang-it">Operazioni straordinarie, governance, rapporti tra società del gruppo e coordinamento amministrativo e societario.</p>
+        <p class="lang-en">Extraordinary transactions, governance, intercompany relations and administrative and corporate coordination.</p>
       </div>
       <div class="card">
-        <h3>Pianificazione finanziaria</h3>
-        <p>Rapporti con banche e istituti finanziatori, pianificazione finanziaria e gestione delle problematiche di liquidità e finanziamento.</p>
+        <h3 class="lang-it">Pianificazione finanziaria</h3>
+        <h3 class="lang-en">Financial planning</h3>
+        <p class="lang-it">Rapporti con banche e istituti finanziatori, pianificazione finanziaria e gestione delle problematiche di liquidità e finanziamento.</p>
+        <p class="lang-en">Relations with banks and financial institutions, financial planning and management of liquidity and financing issues.</p>
       </div>
       <div class="card">
-        <h3>Strumenti e reportistica</h3>
-        <p>Modelli Excel strutturati, sistemi di reporting, cruscotti direzionali, Business Intelligence e strumenti di intelligenza artificiale per analisi e reportistica.</p>
+        <h3 class="lang-it">Strumenti e reportistica</h3>
+        <h3 class="lang-en">Tools and reporting</h3>
+        <p class="lang-it">Modelli Excel strutturati, sistemi di reporting, cruscotti direzionali, Business Intelligence e strumenti di intelligenza artificiale per analisi e reportistica.</p>
+        <p class="lang-en">Structured Excel models, reporting systems, management dashboards, Business Intelligence and AI tools for analysis and reporting.</p>
       </div>
     </div>
   </section>
 
   <section id="metodo">
-    <h2>Come lavoro</h2>
-    <p>Il metodo è concreto e orientato alle decisioni: analisi dei numeri, modelli di calcolo verificabili, documentazione ordinata e riferimenti normativi precisi. Uso strumenti di consolidamento professionali e modelli Excel strutturati; sviluppo cruscotti direzionali per gli organi amministrativi e integro soluzioni di intelligenza artificiale per rendere più rapide le analisi e la reportistica.</p>
-    <p>Per l’impresa sono l’interlocutore unico verso banche e istituti finanziatori, Amministrazione finanziaria, notai, revisori e consulenti esteri. Coordino i flussi informativi e affianco l’imprenditore e il management dalla fase istruttoria fino all’esecuzione, con l’obiettivo di fornire informazioni affidabili, tempestive e realmente utili alla gestione.</p>
+    <h2 class="lang-it">Come lavoro</h2>
+    <h2 class="lang-en">How I work</h2>
+    <div class="lang-it">
+      <p>Il metodo è concreto e orientato alle decisioni: analisi dei numeri, modelli di calcolo verificabili, documentazione ordinata e riferimenti normativi precisi. Uso strumenti di consolidamento professionali e modelli Excel strutturati; sviluppo cruscotti direzionali e integro soluzioni di intelligenza artificiale per rendere più rapide le analisi e la reportistica.</p>
+      <p>Per l’impresa sono l’interlocutore unico verso banche e istituti finanziatori, Amministrazione finanziaria, notai, revisori e consulenti esteri. Coordino i flussi informativi e affianco l’imprenditore e il management dalla fase istruttoria fino all’esecuzione. Sostanza e risultati, non forma.</p>
+    </div>
+    <div class="lang-en">
+      <p>The approach is concrete and decision-oriented: analysis of the numbers, verifiable calculation models, orderly documentation and precise regulatory references. I use professional consolidation tools and structured Excel models; I develop management dashboards and integrate artificial intelligence solutions to speed up analysis and reporting.</p>
+      <p>For the company I am the single point of contact with banks and financial institutions, the tax authorities, notaries, auditors and foreign advisors. I coordinate information flows and support the entrepreneur and management from the preliminary phase to execution. Substance and results, not form.</p>
+    </div>
   </section>
 
   <section id="contatti">
-    <h2>Contatti</h2>
+    <h2 class="lang-it">Contatti</h2>
+    <h2 class="lang-en">Contact</h2>
     <div class="contact-box">
       <p><strong>Email:</strong> <a href="mailto:pf@studiodirienzo.it">pf@studiodirienzo.it</a></p>
       <p><strong>Web:</strong> www.studiodirienzo.it</p>
@@ -87,8 +159,20 @@
   </section>
 
   <footer>
-    <p>&copy; 2026 Pier Francesco Di Rienzo – Studio Di Rienzo</p>
+    <p class="lang-it">&copy; 2026 Pier Francesco Di Rienzo</p>
+    <p class="lang-en">&copy; 2026 Pier Francesco Di Rienzo</p>
     <p><a href="mailto:pf@studiodirienzo.it">pf@studiodirienzo.it</a> · www.studiodirienzo.it</p>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('lang', lang);
+    }
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en') setLang('en');
+  </script>
 </body>
 </html>
