@@ -38,6 +38,7 @@
     .lang-en { display: none; }
     body.lang-en .lang-en { display: block; }
     body.lang-en .lang-it { display: none; }
+    /* Italian is visible by default */
   </style>
 </head>
 <body>
@@ -55,13 +56,14 @@
   <section>
     <div class="profile">
       <div class="photo" id="photo-placeholder">
+        <!-- Sostituire con <img src="foto.jpg" alt="Pier Francesco Di Rienzo"> quando disponibile -->
         Foto professionale
       </div>
       <div class="bio-short">
         <div class="lang-it">
           <p><strong>Commercialista e Revisore Legale</strong><br>
           Base in Umbria, operatività in Italia e all’estero.<br>
-          Attivo dai primi anni ’90 (oltre 35 anni di esperienza).<br>
+          Attivo dal primi anni ’90 (oltre 35 anni di esperienza).<br>
           Lingue: italiano, inglese, spagnolo, francese.<br>
           Aggiornamento continuo su normativa, strumenti digitali e tecnologie di analisi.</p>
         </div>
@@ -83,13 +85,13 @@
       <p>Sono Commercialista e Revisore Legale. Ho base in Umbria e opero in Italia e nel mondo, di persona o attraverso i network professionali costruiti in oltre 35 anni di attività (dai primi anni ’90). Comunico in italiano, inglese, spagnolo e francese.</p>
       <p>Ho maturato la mia esperienza principalmente nel settore automotive, metalmeccanico e nelle aziende industriali. Per questo i miei servizi sono orientati a questa tipologia di imprese e gruppi societari.</p>
       <p>Affianco il ruolo di CFO di un gruppo industriale metalmeccanico del settore automotive con società controllate e partecipate in Italia e all’estero. Ricopro inoltre incarichi di sindaco e di revisore legale in società di capitali, industriali e immobiliari.</p>
-      <p>Lavoro con imprese strutturate: vado dai clienti, opero dove serve e utilizzo le tecnologie più avanzate. Non ho bisogno di strutture di supporto superflue. Il focus è sui risultati concreti, non sulla forma.</p>
+      <p>Lavoro direttamente con l’imprenditore e il management: contatto personale, senza filtri intermedi. Vado dai clienti, opero dove serve e utilizzo strumenti e tecnologie avanzate per fornire risultati concreti e tempestivi.</p>
     </div>
     <div class="lang-en">
       <p>I am a Chartered Accountant and Statutory Auditor. Based in Umbria, I operate in Italy and worldwide, either in person or through the professional networks built over more than 35 years of activity (since the early 1990s). I work in Italian, English, Spanish and French.</p>
       <p>I developed my experience mainly in the automotive, metalworking and industrial sectors. My services are therefore focused on this type of companies and groups.</p>
       <p>I act as CFO of an industrial metalworking group in the automotive sector with subsidiaries and affiliates in Italy and abroad. I also serve as statutory auditor and legal auditor in capital companies, both industrial and real estate.</p>
-      <p>I work with structured companies: I go to the clients, operate wherever needed and use advanced technologies. No unnecessary support structures. The focus is on concrete results, not on form.</p>
+      <p>I work directly with the entrepreneur and management: personal contact, without intermediate filters. I go to the clients, operate wherever needed and use advanced tools and technologies to deliver concrete and timely results.</p>
     </div>
   </section>
 
@@ -141,11 +143,11 @@
     <h2 class="lang-en">How I work</h2>
     <div class="lang-it">
       <p>Il metodo è concreto e orientato alle decisioni: analisi dei numeri, modelli di calcolo verificabili, documentazione ordinata e riferimenti normativi precisi. Uso strumenti di consolidamento professionali e modelli Excel strutturati; sviluppo cruscotti direzionali e integro soluzioni di intelligenza artificiale per rendere più rapide le analisi e la reportistica.</p>
-      <p>Per l’impresa sono l’interlocutore unico verso banche e istituti finanziatori, Amministrazione finanziaria, notai, revisori e consulenti esteri. Coordino i flussi informativi e affianco l’imprenditore e il management dalla fase istruttoria fino all’esecuzione. Sostanza e risultati, non forma.</p>
+      <p>Per l’impresa sono l’interlocutore unico verso banche e istituti finanziatori, Amministrazione finanziaria, notai, revisori e consulenti esteri. Coordino i flussi informativi e affianco l’imprenditore e il management dalla fase istruttoria fino all’esecuzione.</p>
     </div>
     <div class="lang-en">
       <p>The approach is concrete and decision-oriented: analysis of the numbers, verifiable calculation models, orderly documentation and precise regulatory references. I use professional consolidation tools and structured Excel models; I develop management dashboards and integrate artificial intelligence solutions to speed up analysis and reporting.</p>
-      <p>For the company I am the single point of contact with banks and financial institutions, the tax authorities, notaries, auditors and foreign advisors. I coordinate information flows and support the entrepreneur and management from the preliminary phase to execution. Substance and results, not form.</p>
+      <p>For the company I am the single point of contact with banks and financial institutions, the tax authorities, notaries, auditors and foreign advisors. I coordinate information flows and support the entrepreneur and management from the preliminary phase to execution.</p>
     </div>
   </section>
 
@@ -171,6 +173,7 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       localStorage.setItem('lang', lang);
     }
+    // Restore previous choice
     const saved = localStorage.getItem('lang');
     if (saved === 'en') setLang('en');
   </script>
