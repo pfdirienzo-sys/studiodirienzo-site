@@ -35,12 +35,12 @@
     .contact-box { background: var(--anthracite); color: white; padding: 2rem; border-radius: 8px; margin-top: 1rem; }
     .contact-box p { margin-bottom: 0.6rem; }
     .contact-box a { color: #7ec8f0; }
-    .lang-it, .lang-en { display: none; }
-    body.lang-it .lang-it, body.lang-en .lang-en { display: block; }
-    body.lang-it .lang-en, body.lang-en .lang-it { display: none; }
+    .lang-en { display: none; }
+    body.lang-en .lang-en { display: block; }
+    body.lang-en .lang-it { display: none; }
   </style>
 </head>
-<body class="lang-it">
+<body>
   <header>
     <div class="lang-switch">
       <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
