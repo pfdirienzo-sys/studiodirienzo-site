@@ -35,13 +35,14 @@
     .contact-box { background: var(--anthracite); color: white; padding: 2rem; border-radius: 8px; margin-top: 1rem; }
     .contact-box p { margin-bottom: 0.6rem; }
     .contact-box a { color: #7ec8f0; }
-    .lang-en { display: none; }
-    body.lang-en .lang-en { display: block; }
-    body.lang-en .lang-it { display: none; }
-    /* Italian is visible by default */
+    .lang-en { display: none !important; }
+    body.lang-en .lang-en { display: block !important; }
+    body.lang-en .lang-it { display: none !important; }
+    body.lang-it .lang-it { display: block !important; }
+    body.lang-it .lang-en { display: none !important; }
   </style>
 </head>
-<body>
+<body class="lang-it">
   <header>
     <div class="lang-switch">
       <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
@@ -156,14 +157,14 @@
     <h2 class="lang-en">Contact</h2>
     <div class="contact-box">
       <p><strong>Email:</strong> <a href="mailto:pf@studiodirienzo.it">pf@studiodirienzo.it</a></p>
-      <p><strong>Web:</strong> www.studiodirienzo.it</p>
+      <p><strong class="lang-it">Telefono:</strong><strong class="lang-en">Phone:</strong> 000000000</p>
     </div>
   </section>
 
   <footer>
     <p class="lang-it">&copy; 2026 Pier Francesco Di Rienzo</p>
     <p class="lang-en">&copy; 2026 Pier Francesco Di Rienzo</p>
-    <p><a href="mailto:pf@studiodirienzo.it">pf@studiodirienzo.it</a> · www.studiodirienzo.it</p>
+    <p><a href="mailto:pf@studiodirienzo.it">pf@studiodirienzo.it</a></p>
   </footer>
 
   <script>
@@ -173,9 +174,11 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       localStorage.setItem('lang', lang);
     }
-    // Restore previous choice
+    // Ensure default
+    if (!document.body.className) document.body.className = 'lang-it';
     const saved = localStorage.getItem('lang');
     if (saved === 'en') setLang('en');
+    else setLang('it');
   </script>
 </body>
 </html>
