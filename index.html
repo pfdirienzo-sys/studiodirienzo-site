@@ -35,11 +35,9 @@
     .contact-box { background: var(--anthracite); color: white; padding: 2rem; border-radius: 8px; margin-top: 1rem; }
     .contact-box p { margin-bottom: 0.6rem; }
     .contact-box a { color: #7ec8f0; }
-    .lang-en { display: none !important; }
-    body.lang-en .lang-en { display: block !important; }
-    body.lang-en .lang-it { display: none !important; }
-    body.lang-it .lang-it { display: block !important; }
-    body.lang-it .lang-en { display: none !important; }
+    .lang-en { display: none; }
+    body.lang-en .lang-en { display: block; }
+    body.lang-en .lang-it { display: none; }
   </style>
 </head>
 <body class="lang-it">
@@ -169,16 +167,14 @@
 
   <script>
     function setLang(lang) {
-      document.body.className = 'lang-' + lang;
+      document.body.classList.remove('lang-it', 'lang-en');
+      document.body.classList.add('lang-' + lang);
       document.getElementById('btn-it').classList.toggle('active', lang === 'it');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       localStorage.setItem('lang', lang);
     }
-    // Ensure default
-    if (!document.body.className) document.body.className = 'lang-it';
-    const saved = localStorage.getItem('lang');
-    if (saved === 'en') setLang('en');
-    else setLang('it');
+    // Default to Italian on load
+    setLang(localStorage.getItem('lang') || 'it');
   </script>
 </body>
 </html>
